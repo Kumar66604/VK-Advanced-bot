@@ -1,1 +1,21 @@
-
+{
+  "name": "VK-Advanced-bot",
+  "description": "A telegram bot which can do multiple works",
+  "keywords": [
+    "Telegram",
+    "telegram-bot",
+    "management-bot"
+  ],
+  "repository": "https://github.com/Kumar66604/VK-Advanced-bot",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    }
+  },
+}
