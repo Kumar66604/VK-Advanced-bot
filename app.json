@@ -1,13 +1,13 @@
 {
   "name": "VK-Advanced-bot",
-  "description": "A telegram bot which can do multiple works",
+  "description": "A telegram bot which can do multiple tasks",
   "keywords": [
     "Telegram",
     "telegram-bot",
     "management-bot"
   ],
   "repository": "https://github.com/Kumar66604/VK-Advanced-bot",
-  "logo": "https://small-sharp-tool.com/logo.svg",
+  "logo": "https://telegra.ph/file/969dc64761764c60d303c.jpg",
   "env": {
     "TG_BOT_TOKEN": {
       "description": "Your Bot token, Get it from @Botfather",
