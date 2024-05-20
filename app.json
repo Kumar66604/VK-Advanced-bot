@@ -9,13 +9,21 @@
   "repository": "https://github.com/Kumar66604/VK-Advanced-bot",
   "logo": "https://small-sharp-tool.com/logo.svg",
   "env": {
-    "SECRET_TOKEN": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
-      "generator": "secret"
+    "TG_BOT_TOKEN": {
+      "description": "Your Bot token, Get it from @Botfather",
+      "value": ""
     },
-    "WEB_CONCURRENCY": {
-      "description": "The number of processes to run.",
-      "value": "5"
+    "OWNER_ID": {
+      "description": "An integer of consisting of your owner ID",
+      "value": ""
+    },
+    "APP_ID":{
+      "description": "your app id, take it from my.telegram.org",
+      "value": ""
+    },
+    "API_HASH":{
+      "description": "your api hash, take it from my.telegram.org",
+      "value": ""
     }
-  },
+  }
 }
