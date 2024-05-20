@@ -17,15 +17,15 @@
       "description": "An integer of consisting of your owner ID",
       "value": ""
     },
-    "APP_ID":{
+    "APP_ID": {
       "description": "your app id, take it from my.telegram.org",
       "value": ""
     },
-    "API_HASH":{
+    "API_HASH": {
       "description": "your api hash, take it from my.telegram.org",
       "value": ""
     }
-  }
+  },
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-python"
