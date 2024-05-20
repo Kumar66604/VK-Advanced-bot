@@ -1,2 +1,5 @@
 pyrogram
 TgCrypto
+phonenumbers
+python-dotenv
+requests
