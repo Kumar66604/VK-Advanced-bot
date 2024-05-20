@@ -1,1 +1,1 @@
-web : python3 -m Vk
+web : python3 -m VK
