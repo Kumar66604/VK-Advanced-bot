@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from config import MONGO_URI
+from config import MONGO_URI,OWNER_ID
 
 client = MongoClient(MONGO_URI)
 
@@ -46,7 +46,7 @@ def all_groups():
     grps = len(list(group))
     return grps
 
-@app.on_message(filters.command("broadcast") & filters.user(cfg.SUDO))
+@app.on_message(filters.command("broadcast") & filters.user(OWNER_ID))
 async def bcast(_, m : Message):
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
@@ -77,7 +77,7 @@ async def bcast(_, m : Message):
     await lel.edit(f"✅Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
 
 
-@app.on_message(filters.command("fcast") & filters.user(cfg.SUDO))
+@app.on_message(filters.command("fcast") & filters.user(OWNER_ID))
 async def fcast(_, m : Message):
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
