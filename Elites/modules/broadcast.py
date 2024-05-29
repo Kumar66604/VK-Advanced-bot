@@ -112,3 +112,14 @@ async def fcast(_, m : Message):
 
     await lel.edit(f"✅Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
           
+@app.on_message(filters.command("users") & filters.user(OWNER_ID))
+async def dbtool(_, m : Message):
+    xx = all_users()
+    x = all_groups()
+    tot = int(xx + x)
+    await m.reply_text(text=f"""
+🍀 Chats Stats 🍀
+🙋‍♂️ Users : `{xx}`
+👥 Groups : `{x}`
+🚧 Total users & groups : `{tot}` """)
+        
