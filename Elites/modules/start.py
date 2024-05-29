@@ -77,12 +77,12 @@ back_buttons  = [[
 @app.on_message(filters.command("start"))
 async def start(_,message):
         id = message.from_user.id
-    if not await already_db(id):
-        try:
-            await add_user(id)
-  waifu = random.choice(TheChampu)
-  await message.reply_photo(photo=waifu,
-                            caption=start_txt.format(message.from_user.mention),reply_markup=button)
+        if not await already_db(id):
+                try:
+                        await add_user(id)
+                        waifu = random.choice(TheChampu)
+                        await message.reply_photo(photo=waifu,
+                                                  caption=start_txt.format(message.from_user.mention),reply_markup=button)
 
 
 
@@ -94,10 +94,12 @@ async def cb_handler(client, query):
                 InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
             ],
             [
-                InlineKeyboardButton("↯ ᴄᴏᴍᴍᴀɴᴅs ↯", callback_data="help_")
+                InlineKeyboardBu
+                    tton("↯ ᴄᴏᴍᴍᴀɴᴅs ↯", callback_data="help_")
             ],
             [
-            InlineKeyboardButton("☆ ᴍʏ ʙᴧʙᴇ ☆", url=f"https://t.me/ll_ANIME_DP_ll"),    
+            InlineKeyboardButton("☆ ᴍʏ ʙᴧʙᴇ ☆
+            ", url=f"https://t.me/ll_ANIME_DP_ll"),    
             ]    
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
