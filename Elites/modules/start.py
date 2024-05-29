@@ -77,7 +77,7 @@ async def start(_, m: Message):
         add_user(m.from_user.id)
         waifu = random.choice(TheChampu)
         await m.reply_photo(photo=waifu,
-                                  caption=start_txt.format(message.from_user.mention),reply_markup=button)
+                                  caption=start_txt.format(m.from_user.mention),reply_markup=button)
 
 
 
