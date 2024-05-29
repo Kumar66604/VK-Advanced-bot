@@ -94,12 +94,10 @@ async def cb_handler(client, query):
                 InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
             ],
             [
-                InlineKeyboardBu
-                    tton("↯ ᴄᴏᴍᴍᴀɴᴅs ↯", callback_data="help_")
+                InlineKeyboardButton("↯ ᴄᴏᴍᴍᴀɴᴅs ↯", callback_data="help_")
             ],
             [
-            InlineKeyboardButton("☆ ᴍʏ ʙᴧʙᴇ ☆
-            ", url=f"https://t.me/ll_ANIME_DP_ll"),    
+            InlineKeyboardButton("☆ ᴍʏ ʙᴧʙᴇ ☆", url=f"https://t.me/ll_ANIME_DP_ll"),    
             ]    
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
