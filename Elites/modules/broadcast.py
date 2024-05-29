@@ -54,6 +54,14 @@ def all_groups():
     grps = len(list(group))
     return grps
 
+async def total_chat_count(self):
+        count = await self.grp.count_documents({})
+        return count
+    
+async def get_all_chats(self):
+        return self.grp.find({})
+            
+
 @app.on_message(filters.command("broadcast") & filters.user(OWNER_ID))
 async def bcast(_, m : Message):
     allusers = users
@@ -127,11 +135,11 @@ async def dbtool(_, m : Message):
         
 @Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
 async def broadcast_group(bot, message):
-    groups = all_groups()
+    groups = await db.get_all_chats()
     b_msg = message.reply_to_message
     sts = await message.reply_text(text='Broadcasting your messages To Groups...')
     start_time = time.time()
-    total_groups = all_groups()
+    total_groups = await db.total_chat_count()
     done = 0
     failed = ""
     success = 0
