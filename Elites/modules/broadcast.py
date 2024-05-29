@@ -1,3 +1,4 @@
+import datetime, time, os, asyncio,logging 
 from pyrogram.types import Message
 from pyrogram import filters, Client, errors, enums
 from pyrogram.errors.exceptions.flood_420 import FloodWait
@@ -10,6 +11,8 @@ client = MongoClient(MONGO_URI)
 
 users = client['main']['users']
 groups = client['main']['groups']
+
+db = Database(MONGO_URI)
 
 def already_db(user_id):
         user = users.find_one({"user_id" : str(user_id)})
@@ -122,3 +125,52 @@ async def dbtool(_, m : Message):
 ★ Gʀᴏᴜᴘs : `{x}`
 ★ Tᴏᴛᴀʟ ᴜsᴇʀs & ɢʀᴏᴜᴘs : `{tot}` """)
         
+@Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
+async def broadcast_group(bot, message):
+    groups = all_groups()
+    b_msg = message.reply_to_message
+    sts = await message.reply_text(text='Broadcasting your messages To Groups...')
+    start_time = time.time()
+    total_groups = all_groups()
+    done = 0
+    failed = ""
+    success = 0
+    deleted = 0
+    async for group in groups:
+        pti, sh, ex = await broadcast_messages_group(int(group['id']), b_msg)
+        if pti == True:
+            if sh == "Succes":
+                success += 1
+        elif pti == False:
+            if sh == "deleted":
+                deleted+=1 
+                failed += ex 
+                try:
+                    await bot.leave_chat(int(group['id']))
+                except Exception as e:
+                    print(f"{e} > {group['id']}")  
+        done += 1
+        if not done % 20:
+            await sts.edit(f"Broadcast in progress:\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}\nDeleted: {deleted}")    
+    time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
+    await sts.delete()
+    try:
+        await message.reply_text(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}\nDeleted: {deleted}\n\nFiled Reson:- {failed}")
+    except MessageTooLong:
+        with open('reason.txt', 'w+') as outfile:
+            outfile.write(failed)
+        await message.reply_document('reason.txt', caption=f"Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}\nDeleted: {deleted}")
+        os.remove("reason.txt")
+
+async def broadcast_messages_group(chat_id, message):
+    try:
+        await message.copy(chat_id=chat_id)
+        return True, "Succes", 'mm'
+    except FloodWait as e:
+        await asyncio.sleep(e.value)
+        return await broadcast_messages_group(chat_id, message)
+    except Exception as e:
+        await db.delete_chat(int(chat_id))       
+        logging.info(f"{chat_id} - PeerIdInvalid")
+        return False, "deleted", f'{e}\n\n'
+    
