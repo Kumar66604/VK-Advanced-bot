@@ -10,6 +10,8 @@ import logging
 from config import OWNER_ID, BOT_USERNAME
 from config import *
 from Elites import Elites as app
+from Elites.core.strings import (music_txt, ai_txt, bass_txt, youtube_txt, 
+misc_txt, broadcast_txt, checker_txt, devs_txt, instagram_txt)
 
 import pyrogram
 from pyrogram.errors import FloodWait
