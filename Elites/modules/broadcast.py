@@ -132,7 +132,7 @@ async def dbtool(_, m : Message):
 ★ Gʀᴏᴜᴘs : `{x}`
 ★ Tᴏᴛᴀʟ ᴜsᴇʀs & ɢʀᴏᴜᴘs : `{tot}` """)
         
-@Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("group_broadcast") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_group(bot, message):
     groups = await get_all_chats()
     b_msg = message.reply_to_message
