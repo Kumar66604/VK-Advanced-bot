@@ -1,1 +1,1 @@
-web : python3 main.py
+ghost: python3 -m Elites
