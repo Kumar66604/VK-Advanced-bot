@@ -84,7 +84,7 @@ back_buttons  = [[
 
 
 
-@Waifu.on_message(filters.command("start"))
+@app.on_message(filters.command("start"))
 async def start(_,message):
   waifu = random.choice(TheChampu)
   await message.reply_photo(photo=waifu,
@@ -92,7 +92,7 @@ async def start(_,message):
 
 
 
-@Waifu.on_callback_query()
+@app.on_callback_query()
 async def cb_handler(client, query):
     if query.data=="home_":
         buttons =  [
