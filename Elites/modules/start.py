@@ -76,7 +76,7 @@ back_buttons  = [[
 async def start(_, m: Message):
         add_user(m.from_user.id)
         waifu = random.choice(TheChampu)
-        await message.reply_photo(photo=waifu,
+        await m.reply_photo(photo=waifu,
                                   caption=start_txt.format(message.from_user.mention),reply_markup=button)
 
 
