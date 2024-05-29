@@ -12,7 +12,6 @@ client = MongoClient(MONGO_URI)
 users = client['main']['users']
 groups = client['main']['groups']
 
-db = Database(MONGO_URI)
 
 def already_db(user_id):
         user = users.find_one({"user_id" : str(user_id)})
@@ -54,6 +53,8 @@ def all_groups():
     grps = len(list(group))
     return grps
 
+class Database:
+        
 async def total_chat_count(self):
         count = await self.grp.count_documents({})
         return count
@@ -61,6 +62,7 @@ async def total_chat_count(self):
 async def get_all_chats(self):
         return self.grp.find({})
             
+db = Database(MONGO_URI)
 
 @app.on_message(filters.command("broadcast") & filters.user(OWNER_ID))
 async def bcast(_, m : Message):
