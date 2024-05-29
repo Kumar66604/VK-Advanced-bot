@@ -75,9 +75,9 @@ back_buttons  = [[
 @app.on_message(filters.command("start"))
 async def start(_, m: Message):
         add_user(m.from_user.id)
-  waifu = random.choice(TheChampu)
-  await message.reply_photo(photo=waifu,
-                            caption=start_txt.format(message.from_user.mention),reply_markup=button)
+        waifu = random.choice(TheChampu)
+        await message.reply_photo(photo=waifu,
+                                  caption=start_txt.format(message.from_user.mention),reply_markup=button)
 
 
 
@@ -86,14 +86,7 @@ async def cb_handler(client, query):
     if query.data=="home_":
         buttons =  [
             [
-                InlineKeyboardButton("➕ @Waifu.on_message(filters.command("start"))
-async def start(_,message):
-  waifu = random.choice(TheChampu)
-  await message.reply_photo(photo=waifu,
-                            caption=start_txt.format(message.from_user.mention),reply_markup=button)
-
-
-                                     ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
             ],
             [
                 InlineKeyboardButton("↯ ᴄᴏᴍᴍᴀɴᴅs ↯", callback_data="help_")
