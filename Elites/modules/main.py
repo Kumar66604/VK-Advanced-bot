@@ -1,22 +1,10 @@
 import random
-from pyrogram import Client, filters
-import os
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram import filters
-from pyrogram.types import Message
-import time
-import psutil
-import platform
-import logging
-from config import OWNER_ID, BOT_USERNAME
-from config import *
+from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+from config import BOT_USERNAME
 from Elites import Elites as app
 from Elites.core.strings import (music_txt, ai_txt, bass_txt, youtube_txt, 
 misc_txt, broadcast_txt, checker_txt, devs_txt, instagram_txt)
-
-import pyrogram
-from pyrogram.errors import FloodWait
-
 
 TheChampu = ["https://telegra.ph/file/9b4d1991f91bbe315ba9d.jpg" , "https://telegra.ph/file/ffb8584f80050fad3137a.jpg" , "https://telegra.ph/file/c98991272535959225f4a.jpg", "https://telegra.ph/file/2559e93cbe76fd859864c.jpg" , "https://telegra.ph/file/3ebad940c543da336da50.jpg" , "https://telegra.ph/file/d856178ed8e3f7bee5330.jpg" , "https://telegra.ph/file/cda2318c33031362b397a.jpg" , "https://telegra.ph/file/ae2b33b387846f46f2e79.jpg" , "https://telegra.ph/file/cda2318c33031362b397a.jpg" , "https://telegra.ph/file/ae2b33b387846f46f2e79.jpg" ,  "https://telegra.ph/file/51e1ff97dc84e4a111f1f.jpg" , "https://telegra.ph/file/3352cdeb623e2e5700252.jpg" , "https://telegra.ph/file/bcd77d1897f475940b884.jpg" , "https://telegra.ph/file/498910d26fa0ac18bd40f.jpg" , "https://telegra.ph/file/6c7915de931103cf47df9.jpg" , "https://telegra.ph/file/38eb88d3a7f926ed1df58.jpg" , "https://telegra.ph/file/6f88fc6fdab2570cc16bc.jpg"]
 # ------------------------------------------------------------------------------- #
