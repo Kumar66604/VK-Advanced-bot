@@ -119,6 +119,6 @@ async def dbtool(_, m : Message):
     tot = int(xx + x)
     await m.reply_text(text=f"""
     ★ Usᴇʀs : `{xx}`
-    ★ Gʀᴏᴜᴘs : `{x}`
-    ★ Tᴏᴛᴀʟ ᴜsᴇʀs & ɢʀᴏᴜᴘs : `{tot}` """)
+★ Gʀᴏᴜᴘs : `{x}`
+★ Tᴏᴛᴀʟ ᴜsᴇʀs & ɢʀᴏᴜᴘs : `{tot}` """)
         
