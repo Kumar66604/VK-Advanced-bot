@@ -80,6 +80,8 @@ async def start(_,message):
         if not await already_db(id):
                 try:
                         await add_user(id)
+                except:
+                        pass
                         waifu = random.choice(TheChampu)
                         await message.reply_photo(photo=waifu,
                                                   caption=start_txt.format(message.from_user.mention),reply_markup=button)
