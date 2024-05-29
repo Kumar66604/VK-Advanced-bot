@@ -1,37 +1,36 @@
 {
-  "name": "VK-Advanced-bot",
-  "description": "A telegram bot which can do multiple tasks",
-  "keywords": [
-    "Telegram",
-    "telegram-bot",
-    "management-bot"
-  ],
+  "name": "telegram-bot-app",
+  "description": "Telegram Bot using Pyrogram",
   "repository": "https://github.com/Kumar66604/VK-Advanced-bot",
-  "logo": "https://telegra.ph/file/969dc64761764c60d303c.jpg",
   "env": {
-    "TG_BOT_TOKEN": {
-      "description": "Your Bot token, Get it from @Botfather",
-      "value": ""
-    },
-    "OWNER_ID": {
-      "description": "An integer of consisting of your owner ID",
-      "value": ""
-    },
-    "APP_ID": {
-      "description": "your app id, take it from my.telegram.org",
-      "value": ""
+    "API_ID": {
+      "description": "Your Telegram API ID",
+      "required": true
     },
     "API_HASH": {
-      "description": "your api hash, take it from my.telegram.org",
-      "value": ""
+      "description": "Your Telegram API Hash",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Your Telegram Bot Token",
+      "required": true
+    },
+    "BOT_USERNAME": {
+      "description": "Your Bot Username",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram User ID (Owner)",
+      "required": true
+    },
+    "LOGGER_ID": {
+      "description": "Your Logger Chat ID",
+      "required": true
+    },
+    "MONGO_URL": {
+      "description": "Your MongoDB URL",
+      "required": true
     }
   },
-  "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-python"
-    },
-    {
-      "url": "heroku/python"
-    }
-  ]
+  "stack": "heroku-22"
 }
