@@ -26,6 +26,10 @@
     "LOGGER_ID": {
       "description": "Your Logger Chat ID",
       "required": true
+    },
+    "MONGO_URI": {
+      "description": "Your Mongodb URI",
+      "required": true
     }
   },
   "stack": "heroku-22"
