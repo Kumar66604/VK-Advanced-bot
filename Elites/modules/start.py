@@ -75,6 +75,10 @@ back_buttons  = [[
 
 @app.on_message(filters.command("start"))
 async def start(_,message):
+        id = message.from_user.id
+    if not await already_db(id):
+        try:
+            await add_user(id)
   waifu = random.choice(TheChampu)
   await message.reply_photo(photo=waifu,
                             caption=start_txt.format(message.from_user.mention),reply_markup=button)
